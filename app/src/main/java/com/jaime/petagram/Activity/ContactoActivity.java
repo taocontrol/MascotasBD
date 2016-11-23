@@ -1,5 +1,6 @@
 package com.jaime.petagram.Activity;
 
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.jaime.petagram.R;
+import com.jaime.petagram.utilities.SendMail;
 
 import java.util.Properties;
 
@@ -23,9 +25,8 @@ public class ContactoActivity extends AppCompatActivity {
 
     private EditText mensaje;
     private EditText nombre;
-    private String remitente;
     private EditText destinatario;
-
+    private View view;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,11 +46,13 @@ public class ContactoActivity extends AppCompatActivity {
         destinatario = (EditText) findViewById(R.id.campo_correo);
         mensaje = (EditText) findViewById(R.id.campo_descripcion);
         nombre = (EditText) findViewById(R.id.campo_nombre);
+        view = v;
+
 
         if (destinatario != null) {
-            if (destinatario.getText().toString().matches("[a-zA-Z0-9._-]+@[a-z]+.[a-z]+") && destinatario.length() > 0) {
-                enviar2(destinatario.getText().toString(), mensaje.getText().toString(), nombre.getText().toString());
-                Toast.makeText(this, "El mensaje ha sido enviado...", Toast.LENGTH_SHORT).show();
+            if (destinatario.getText().toString().matches("[a-zA-Z0-9._-]+@[a-z]+.*+") && destinatario.length() > 0) {
+                sendEmail(destinatario.getText().toString(), mensaje.getText().toString(), nombre.getText().toString());
+
                 inicializarCampos();
             } else {
                 Toast.makeText(this, "El correo no es válido...", Toast.LENGTH_SHORT).show();
@@ -61,6 +64,14 @@ public class ContactoActivity extends AppCompatActivity {
         }
     }
 
+
+    private void sendEmail(String destinatario, String mensaje, String nombre) {
+        //Creating SendMail object
+        SendMail sm = new SendMail(this, destinatario, "Comentario App Petagram", mensaje+"\n \n"+nombre, view);
+        //Executing sendmail to send email
+        sm.execute();
+    }
+
     private void inicializarCampos() {
         nombre.setText(null);
         destinatario.setText(null);
@@ -68,34 +79,6 @@ public class ContactoActivity extends AppCompatActivity {
         nombre.requestFocus();
     }
 
-    private void enviar2(String destinatario, String mensaje, String nombre) {
-        try {
-            Properties properties2 = new Properties();
-            properties2.put("mail.smtps.host", "mail.fundacionparaguaya.org.py");
-            properties2.put("mail.smtps.port", 465);
-            properties2.put("mail.smtps.mail.sender", "appfupa@fundacionparaguaya.org.py");
-            properties2.put("mail.smtps.user", "appfupa@fundacionparaguaya.org.py");
-            properties2.put("mail.smtps.password", "appfupa123");
-            Session session2 = Session.getDefaultInstance(properties2);
-            session2.setDebug(true);
 
 
-
-            String sendto2 = destinatario.toString();
-
-            MimeMessage message2 = new MimeMessage(session2);
-            message2.setFrom(new InternetAddress((String) properties2.get("mail.smtps.mail.sender")));
-            message2.addRecipient(Message.RecipientType.TO, new InternetAddress(sendto2));
-            message2.setSubject("Correo");
-            message2.setText(nombre.toString() + ", " + mensaje.toString());
-
-            Transport t2 = session2.getTransport("smtps");
-            t2.connect((String) properties2.get("mail.smtps.user"), (String) properties2.get("mail.smtps.password"));
-            t2.sendMessage(message2, message2.getAllRecipients());
-            t2.close();
-
-        } catch (MessagingException e) {
-            e.printStackTrace();
-        }
-    }
 }

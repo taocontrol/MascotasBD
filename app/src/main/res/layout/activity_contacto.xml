@@ -43,6 +43,7 @@
 
     </android.support.design.widget.TextInputLayout>
 
+
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -54,6 +55,8 @@
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="top"
+            android:lines="4"
             android:id="@+id/campo_descripcion"
             android:hint="Mensaje"/>
 
