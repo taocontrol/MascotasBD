@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_profile"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.jaime.petagram.Activity.ProfileActivity"
+    android:orientation="vertical">
+
+    <include android:id="@+id/miActionBar"
+        layout="@layout/actionbar"
+        ></include>
+
+    <ImageView
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:src="@drawable/userr"
+        android:layout_gravity="center"
+        android:padding="10dp" />
+
+
+    <TextView
+        android:paddingTop="20dp"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jaime Ferreira"
+        android:textStyle="bold"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:paddingTop="10dp"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Estudiante de Analisis de Sistemas Informaticos"/>
+
+    <TextView
+        android:paddingTop="10dp"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="jaimeferreira11@gmail.com"/>
+    <TextView
+        android:paddingTop="10dp"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Asuncion - Paraguay"/>
+
+
+</LinearLayout>

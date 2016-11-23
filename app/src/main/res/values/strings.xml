@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Petagram</string>
+    <string name="text_titulo">Hola Mundo</string>
+    <string name="boton_click">Click!</string>
+    <string name="floating_message">  a Favoritos</string>
+    <string name="texto_accion">Ir a Favoritos</string>
+    <string-array name="planetas">
+        <item>Marte</item>
+        <item>Mercurio</item>
+        <item>Tierra</item>
+    </string-array>
+    <string name="titulo_tarjeta">Android 5.0</string>
+    <string name="descripcion_tarjeta">En esta version se incluyo material design, Android Lollipop</string>
+    <string name="cardtitle">Snoopy</string>
+    <string name="textRank">3</string>
+    <string name="misfavoritos">Mis Favoritos</string>
+    <string name="menu_contacto">Contacto</string>
+    <string name="menu_acercade">Acerca de</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
