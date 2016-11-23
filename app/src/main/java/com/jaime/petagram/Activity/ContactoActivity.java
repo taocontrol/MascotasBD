@@ -79,6 +79,8 @@ public class ContactoActivity extends AppCompatActivity {
             Session session2 = Session.getDefaultInstance(properties2);
             session2.setDebug(true);
 
+
+
             String sendto2 = destinatario.toString();
 
             MimeMessage message2 = new MimeMessage(session2);
