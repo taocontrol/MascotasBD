@@ -5,6 +5,7 @@ package com.jaime.petagram.Pojo;
  */
 public class Mascota {
 
+    private int id;
     private String nombre;
     private int imagen;
     private int rank;
@@ -13,6 +14,10 @@ public class Mascota {
         this.nombre = nombre;
         this.imagen = imagen;
         this.rank = rank;
+    }
+
+    public Mascota() {
+
     }
 
     public String getNombre() {
@@ -37,5 +42,13 @@ public class Mascota {
 
     public void setRank(int rank) {
         this.rank = rank;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

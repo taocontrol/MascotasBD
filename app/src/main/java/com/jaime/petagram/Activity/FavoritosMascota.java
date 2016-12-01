@@ -14,6 +14,8 @@ import android.widget.ImageView;
 import com.jaime.petagram.Adapter.MascotaAdaptador;
 import com.jaime.petagram.Pojo.Mascota;
 import com.jaime.petagram.R;
+import com.jaime.petagram.db.BaseDatos;
+import com.jaime.petagram.db.ConstructorMascotas;
 
 import java.util.ArrayList;
 
@@ -84,11 +86,15 @@ public class FavoritosMascota extends AppCompatActivity {
     //carga 5 elementos en el recyclerview
     public void inicializarListaMascotas(){
 
-        mascotas.add(new Mascota("Scooby", R.drawable.scooby, 3));
+
+        ConstructorMascotas constructorMascotas = new ConstructorMascotas(this);
+        mascotas = constructorMascotas.ObtenerMascotasFavoritas();
+
+        /*mascotas.add(new Mascota("Scooby", R.drawable.scooby, 3));
         mascotas.add(new Mascota("Pluto", R.drawable.pluto,2));
         mascotas.add(new Mascota("Ayudante de Santa", R.drawable.ayudantedesanta,6));
         mascotas.add(new Mascota("Astro", R.drawable.astro,1));
-        mascotas.add(new Mascota("Odie", R.drawable.odish,3));
+        mascotas.add(new Mascota("Odie", R.drawable.odish,3));*/
 
 
     }

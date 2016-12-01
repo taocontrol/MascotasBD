@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.jaime.petagram.Activity.FavoritosMascota;
 import com.jaime.petagram.Pojo.Mascota;
 import com.jaime.petagram.R;
+import com.jaime.petagram.db.ConstructorMascotas;
 
 import java.util.ArrayList;
 
@@ -48,7 +49,9 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
         holder.btLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                holder.tvRank.setText(String.valueOf(mascota.getRank()+1));
+                ConstructorMascotas constructorMascotas = new ConstructorMascotas(activity);
+                constructorMascotas.darLike(mascota);
+                holder.tvRank.setText(String.valueOf(constructorMascotas.obtenerLikes(mascota)));
                 Snackbar.make(view, "Has agregado a "+mascota.getNombre()+" a favoritos", Snackbar.LENGTH_LONG)
                         .setAction(view.getResources().getString(R.string.texto_accion), new View.OnClickListener() {
                             @Override

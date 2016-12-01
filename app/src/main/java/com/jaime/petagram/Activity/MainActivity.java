@@ -15,9 +15,9 @@ import android.view.View;
 
 import com.jaime.petagram.Adapter.PageAdapter;
 import com.jaime.petagram.Fragments.PerfilFragment;
+import com.jaime.petagram.Fragments.RecyclerviewFragment;
 import com.jaime.petagram.Pojo.Mascota;
 import com.jaime.petagram.R;
-import com.jaime.petagram.Fragments.ReciclerViewFragment;
 
 import java.util.ArrayList;
 
@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         toolbar = (Toolbar) findViewById(R.id.miActionBar);
         if(toolbar != null){
@@ -80,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ArrayList<Fragment> agregarFragments(){
         ArrayList<Fragment> fragments =  new ArrayList<>();
-        fragments.add(new ReciclerViewFragment());
+        fragments.add(new RecyclerviewFragment());
         fragments.add(new PerfilFragment());
 
         return fragments;
